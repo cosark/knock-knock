@@ -961,6 +961,7 @@ def monitor(save_knocks=None, max_knocks=None, ban_duration_days=30):
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
+            encoding='utf-8',
         )
     if not honeypots and not INGEST_PORT:
         print("❌ No honeypots enabled and INGEST_PORT not set — nothing to do", flush=True)

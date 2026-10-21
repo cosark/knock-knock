@@ -51,7 +51,7 @@ _PROFILE = None
 def _load_exploits():
     path = os.path.join(os.path.dirname(__file__), 'node_red_exploits.json')
     try:
-        with open(path) as f:
+        with open(path, encoding='utf-8') as f:
             entries = json.load(f)
         compiled = []
         for idx, e in enumerate(entries):

@@ -112,7 +112,7 @@ def discover_self_identifiers():
     except Exception:
         pass
     try:
-        out = subprocess.check_output(["hostname", "-I"], text=True, stderr=subprocess.DEVNULL).strip()
+        out = subprocess.check_output(["hostname", "-I"], text=True, encoding='utf-8', stderr=subprocess.DEVNULL).strip()
         for tok in out.split():
             if re.fullmatch(r"(?:\d{1,3}\.){3}\d{1,3}", tok):
                 ips.add(tok)

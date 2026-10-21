@@ -74,7 +74,7 @@ def _compile_signature_pattern(entry, key):
 def _load_signatures():
     path = os.path.join(os.path.dirname(__file__), 'mqtt_signatures.json')
     try:
-        with open(path) as f:
+        with open(path, encoding='utf-8') as f:
             entries = json.load(f)
         compiled = []
         for idx, entry in enumerate(entries):

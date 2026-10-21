@@ -99,14 +99,14 @@ def _load_geocode_cache():
     # Load seed file shipped with repo
     if os.path.isfile(_GEOCODE_SEED_FILE):
         try:
-            with open(_GEOCODE_SEED_FILE, 'r') as f:
+            with open(_GEOCODE_SEED_FILE, 'r', encoding='utf-8') as f:
                 _geocode_cache = json.load(f)
         except Exception:
             pass
     # Layer runtime cache on top (has any new entries from Nominatim calls)
     if os.path.isfile(_GEOCODE_CACHE_FILE):
         try:
-            with open(_GEOCODE_CACHE_FILE, 'r') as f:
+            with open(_GEOCODE_CACHE_FILE, 'r', encoding='utf-8') as f:
                 _geocode_cache.update(json.load(f))
         except Exception:
             pass
@@ -115,7 +115,7 @@ def _load_geocode_cache():
 def _save_geocode_cache():
     """Flush runtime geocode cache to disk."""
     try:
-        with open(_GEOCODE_CACHE_FILE, 'w') as f:
+        with open(_GEOCODE_CACHE_FILE, 'w', encoding='utf-8') as f:
             json.dump(_geocode_cache, f, ensure_ascii=False, indent=1)
     except Exception as e:
         print(f'SIP GEOCODE: cache save error: {e}', file=sys.stderr)

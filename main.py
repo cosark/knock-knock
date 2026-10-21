@@ -522,7 +522,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
 def _read_file(path: str) -> str:
     try:
-        return open(path).read()
+        return open(path, encoding='utf-8').read()
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Not found")
 

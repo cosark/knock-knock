@@ -45,7 +45,7 @@ def _load_exploits():
         path = os.path.normpath(path)
         if os.path.exists(path):
             try:
-                with open(path) as f:
+                with open(path, encoding='utf-8') as f:
                     entries = json.load(f)
                 compiled = []
                 for idx, e in enumerate(entries):
